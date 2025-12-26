@@ -11,6 +11,7 @@ const Layout = () => {
         { label: 'Home', ariaLabel: 'Home', link: '/' },
         { label: 'About', ariaLabel: 'About Us', link: '/about' },
         { label: 'Courses', ariaLabel: 'Our Courses', link: '/courses' },
+        { label: 'Projects', ariaLabel: 'Projects', link: '/learning' },
         { label: 'Library', ariaLabel: 'Electronics Library', link: '/electronics' },
         { label: 'Workshops', ariaLabel: 'Events', link: '/workshops' },
         { label: 'Contact', ariaLabel: 'Contact', link: '/contact' },

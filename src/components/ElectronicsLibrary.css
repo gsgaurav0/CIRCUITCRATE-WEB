@@ -1,0 +1,217 @@
+.electronics-section {
+    padding: 6rem 2rem;
+    min-height: 100vh;
+}
+
+.elec-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.elec-title {
+    font-size: 2.5rem;
+    color: #fff;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.elec-search-bar {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    position: relative;
+}
+
+.elec-search-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 99px;
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.elec-search-input:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+    background: rgba(30, 41, 59, 0.9);
+}
+
+.elec-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+}
+
+.elec-filter-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.elec-filter-btn:hover,
+.elec-filter-btn.active {
+    background: #38bdf8;
+    color: #0f172a;
+    font-weight: 600;
+    border-color: #38bdf8;
+}
+
+.elec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.elec-card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.elec-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+.elec-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.elec-card-content {
+    padding: 1rem;
+}
+
+.elec-card-category {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+}
+
+.elec-card-title {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.elec-card-desc {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Modal */
+.elec-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.elec-modal-content {
+    background: #1e293b;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 20px;
+    max-width: 600px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+.elec-modal-header {
+    height: 200px;
+}
+
+.elec-modal-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.elec-modal-body {
+    padding: 2rem;
+}
+
+.elec-modal-title {
+    font-size: 1.75rem;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.elec-modal-cat {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    background: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.elec-section-title {
+    font-size: 1rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.elec-modal-text {
+    font-size: 1rem;
+    color: #e2e8f0;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.elec-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

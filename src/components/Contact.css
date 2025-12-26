@@ -1,0 +1,136 @@
+.contact-section {
+    background-color: #0d0d0d;
+    /* Matching that slightly off-black/pattern-bg look */
+    padding: 6rem 0;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    /* Adjusted ratio */
+    gap: 3rem;
+    /* Tighter gap */
+    align-items: flex-start;
+}
+
+/* Typography Left */
+.contact-text {
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.contact-title {
+    /* Responsive Massive Font */
+    font-size: clamp(4rem, 11vw, 9rem);
+    line-height: 0.85;
+    font-weight: 400;
+    /* Anton handles the weight */
+    font-family: 'Anton', sans-serif;
+    /* KEY CHANGE: Anton is very close to that blocky style */
+    margin-bottom: 2rem;
+    margin-top: 0;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 5px;
+    /* Increased to create distinct gap */
+}
+
+.contact-description {
+    font-size: 0.95rem;
+    color: #a0a0a0;
+    line-height: 1.5;
+    max-width: 400px;
+    font-family: 'Inter', sans-serif;
+    margin-top: 1rem;
+}
+
+/* Form Right */
+.contact-form-container {
+    padding-left: 0;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: #ccc;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: transparent;
+    border: 1px solid #444;
+    /* Distinct border */
+    border-radius: 6px;
+    padding: 0.9rem;
+    /* Taller inputs */
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #fff;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Submit Button */
+.submit-btn {
+    margin-top: 1rem;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-transform: capitalize;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 992px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .contact-text {
+        text-align: center;
+        align-items: center;
+    }
+}

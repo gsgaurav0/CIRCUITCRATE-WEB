@@ -1,0 +1,260 @@
+.testimonials-section {
+    padding: 6rem 0;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonials-title {
+    font-size: 8rem;
+    font-weight: 900;
+    font-family: 'Impact', 'Oswald', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0 0 5rem 0;
+    letter-spacing: -2px;
+    line-height: 1;
+}
+
+.testimonials-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    text-align: left;
+}
+
+/* Visual - Stacked Cards */
+.testimonials-visual {
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.card-stack {
+    position: relative;
+    width: 320px;
+    height: 320px;
+}
+
+.stack-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease;
+}
+
+.card-front {
+    background: #fff;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-5deg);
+    /* Slight tilt like reference */
+}
+
+.card-back-1 {
+    background: #4a5568;
+    /* Greyish blue */
+    z-index: 2;
+    top: 10px;
+    left: -10px;
+    transform: rotate(-10deg);
+}
+
+.card-back-2 {
+    background: #2d3748;
+    /* Darker grey */
+    z-index: 1;
+    top: 20px;
+    left: -20px;
+    transform: rotate(-15deg);
+}
+
+/* Logo inside card */
+.testimonial-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transform: rotate(5deg);
+    /* Counter-rotate to keep logo straight-ish? Or usually it follows card */
+    /* Let's follow the card tilt for realism, or counter it. 
+       Reference image shows logo straight aligned with the card.
+       So no counter-rotation needed if we want it to look printed on the card.
+    */
+    transform: none;
+}
+
+.logo-icon {
+    font-size: 3rem;
+    display: flex;
+}
+
+.logo-text {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a202c;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Text Content */
+.testimonial-company-name {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.testimonial-quote {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    /* Slate 300 */
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 500px;
+}
+
+.testimonial-credit {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 3rem;
+}
+
+/* Controls */
+.testimonial-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.control-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    transform: scale(1.1);
+}
+
+@media (max-width: 992px) {
+    .testimonials-title {
+        font-size: 5rem;
+    }
+
+    .testimonials-content-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .testimonials-text-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial-quote {
+        margin: 0 auto 1.5rem auto;
+    }
+
+    .card-stack {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .testimonials-title {
+        font-size: 3.5rem;
+    }
+
+    .card-stack {
+        width: 260px;
+        height: 260px;
+    }
+}
+
+/* Animations */
+.animate-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Logo animation */
+.testimonial-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: fadeIn 0.5s ease;
+    transform: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Card Animation */
+.animate-card {
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+@keyframes popIn {
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(var(--rotation, 0deg));
+    }
+}
+
+/* Re-applying rotations because animation overrides transform */
+.card-front.animate-card {
+    --rotation: -5deg;
+}
+
+.card-back-1.animate-card {
+    --rotation: -10deg;
+}
+
+.card-back-2.animate-card {
+    --rotation: -15deg;
+}

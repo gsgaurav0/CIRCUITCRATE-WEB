@@ -1,0 +1,136 @@
+.learning-method-section {
+    padding: 6rem 2rem;
+    background-color: transparent;
+    /* Or a very subtle dark background if needed */
+    position: relative;
+    overflow: hidden;
+}
+
+.learning-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.learning-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+    background: linear-gradient(to right, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.learning-subtitle {
+    font-size: 1.125rem;
+    color: #94a3b8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.learning-steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Desktop Layout */
+@media (min-width: 1024px) {
+    .learning-steps-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+        gap: 1rem;
+    }
+}
+
+.learning-card {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    backdrop-filter: blur(10px);
+}
+
+.learning-card:hover {
+    transform: translateY(-5px);
+    background: rgba(30, 41, 59, 0.6);
+    border-color: rgba(148, 163, 184, 0.3);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.step-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(148, 163, 184, 0.1);
+    line-height: 1;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-family: monospace;
+    pointer-events: none;
+}
+
+.card-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    background: rgba(56, 189, 248, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: #38bdf8;
+    transition: all 0.3s ease;
+}
+
+.learning-card:hover .card-icon-wrapper {
+    background: rgba(56, 189, 248, 0.2);
+    transform: scale(1.1);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.75rem;
+}
+
+.card-desc {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Connector Line on Desktop (Optional Enhancement) */
+@media (min-width: 1024px) {
+    .learning-steps-container::before {
+        content: '';
+        position: absolute;
+        top: 3.5rem;
+        /* Adjust based on icon position */
+        left: 2rem;
+        right: 2rem;
+        height: 2px;
+        padding: 0 3rem;
+        background: linear-gradient(90deg,
+                rgba(56, 189, 248, 0) 0%,
+                rgba(56, 189, 248, 0.2) 50%,
+                rgba(56, 189, 248, 0) 100%);
+        z-index: 0;
+        pointer-events: none;
+        display: none;
+        /* Hidden by default to keep it clean, can enable if preferred */
+    }
+}

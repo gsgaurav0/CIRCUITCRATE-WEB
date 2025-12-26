@@ -1,0 +1,153 @@
+.why-participate-section {
+    padding: 6rem 0;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.why-participate-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.why-participate-header {
+    margin-bottom: 5rem;
+    line-height: 0.9;
+}
+
+.why-participate-title-top {
+    font-size: 8rem;
+    font-weight: 900;
+    font-family: 'Impact', 'Oswald', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: -2px;
+}
+
+.why-participate-title-bottom {
+    font-size: 10rem;
+    font-weight: 900;
+    font-family: 'Impact', 'Oswald', sans-serif;
+    color: #3b82f6;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: -2px;
+}
+
+.why-participate-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    text-align: center;
+}
+
+.why-participate-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.card-title {
+    font-family: 'Impact', 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    -webkit-text-stroke: 1px #fff;
+    color: transparent;
+    /* Consistently outlined text style */
+    margin-bottom: 0.5rem;
+}
+
+.card-visual {
+    width: 100%;
+    aspect-ratio: 1;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.card-visual:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.card-icon {
+    font-size: 6rem;
+    color: #fff;
+    opacity: 0.8;
+    /* Use simpler stroke icons if possible, currently using FontAwesome filled */
+    /* Can simulate outlined look with filter or specific icons */
+}
+
+/* Ornamental dots in corners of the square */
+.card-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.dot-tl {
+    top: 10px;
+    left: 10px;
+}
+
+.dot-tr {
+    top: 10px;
+    right: 10px;
+}
+
+.dot-bl {
+    bottom: 10px;
+    left: 10px;
+}
+
+.dot-br {
+    bottom: 10px;
+    right: 10px;
+}
+
+.card-description {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+    max-width: 90%;
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+    .why-participate-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .why-participate-title-top {
+        font-size: 6rem;
+    }
+
+    .why-participate-title-bottom {
+        font-size: 7rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .why-participate-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-participate-title-top {
+        font-size: 4rem;
+    }
+
+    .why-participate-title-bottom {
+        font-size: 5rem;
+    }
+}

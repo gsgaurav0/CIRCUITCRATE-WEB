@@ -1,0 +1,187 @@
+.what-is-section {
+    position: relative;
+    padding: 6rem 0;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Diagonal texture background similar to reference */
+.what-is-bg-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(45deg,
+            rgba(255, 255, 255, 0.03),
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 1px,
+            transparent 10px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.what-is-container {
+    position: relative;
+    z-index: 1;
+    /* max-width removed to allow titles to expand full width if needed */
+}
+
+.what-is-header {
+    margin-bottom: 2.5rem;
+    line-height: 0.9;
+}
+
+/* Massive Titles */
+.what-is-title-top {
+    font-size: 8rem;
+    /* Increased from 5rem */
+    line-height: 0.8;
+    font-weight: 900;
+    font-family: 'Impact', 'Oswald', 'Anton', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: -2px;
+    /* Tighter letter spacing for Impact look */
+}
+
+.what-is-title-bottom {
+    font-size: 10rem;
+    /* Increased from 6rem */
+    line-height: 0.85;
+    font-weight: 900;
+    font-family: 'Impact', 'Oswald', 'Anton', sans-serif;
+    color: #3b82f6;
+    /* Bright blue from reference */
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: -2px;
+}
+
+.what-is-content {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+/* Redesigned Stats Grid to match Reference (2 columns, horizontal dividers) */
+.what-is-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 0;
+    /* Remove gap to handle borders manually or via spacing */
+    border-top: none;
+    /* Removing the single top border */
+    padding-top: 0;
+}
+
+.what-is-stat-item {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    /* Stronger separator */
+}
+
+/* Specific borders for grid items based on 2-column layout */
+.what-is-stat-item:nth-child(odd) {
+    /* Left column */
+    border-right: none;
+}
+
+/* Remove bottom border for the last two items */
+.what-is-stat-item:nth-last-child(1),
+.what-is-stat-item:nth-last-child(2) {
+    border-bottom: none;
+}
+
+/* Add horizontal line between top and bottom rows? 
+   The simple border-bottom on items handles this if there are 4 items.
+   Items 1 & 2 have bottom border. Items 3 & 4 do not.
+*/
+
+/* Values */
+.what-is-stat-value {
+    font-size: 3.5rem;
+    /* Larger stats */
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.what-is-stat-label {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    /* Vertical separator in the middle */
+    /* We can fake it or use :nth-child */
+    /* Actually reference image has gaps. Let's try to match the "Line under 1&2, Line under 3&4? No, referencing image... 
+       Left block | Right block
+       Horizontal lines under the values? 
+       Wait, looking at image: 
+       25000+ Enries            INR 2.0 Cr+ Worth Prizes
+       -----------------------  ------------------------ (Line is distinct for each column?)
+       300+ Mentors             28th Edition
+       
+       Actually it looks like two big columns.
+       Let's use a cleaner approach.
+    */
+
+    .what-is-stats {
+        gap: 4rem;
+        /* Gap between columns */
+    }
+
+    .what-is-stat-item {
+        border-bottom: 1px solid white;
+        /* Line underlining the item */
+        align-items: center;
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+        /* Space after the line */
+    }
+
+    /* Remove borders from CSS logic above to restart */
+    .what-is-stat-item {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.8) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .what-is-title-top {
+        font-size: 4rem;
+    }
+
+    .what-is-title-bottom {
+        font-size: 5rem;
+    }
+
+    .what-is-stats {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .what-is-stat-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+    }
+}

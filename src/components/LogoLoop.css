@@ -1,0 +1,176 @@
+/* LogoLoop defaults */
+.logoloop-root {
+    position: relative;
+    /* Default variables */
+    --logoloop-gap: 32px;
+    --logoloop-logoHeight: 28px;
+    --logoloop-fadeColor: #ffffff00;
+    /* Transparent default if not provided, but usually handled by js */
+    --logoloop-fadeColorAuto: #0a0a16;
+    /* Fallback to bg color */
+}
+
+/* Horizontal vs Vertical container */
+.logoloop-root.horizontal {
+    overflow-x: hidden;
+    height: auto;
+}
+
+.logoloop-root.vertical {
+    overflow: hidden;
+    height: 100%;
+    display: inline-block;
+}
+
+/* Hover effects */
+.logoloop-root.scale-on-hover {
+    padding-top: calc(var(--logoloop-logoHeight) * 0.1);
+    padding-bottom: calc(var(--logoloop-logoHeight) * 0.1);
+}
+
+/* Track */
+.logoloop-track {
+    display: flex;
+    will-change: transform;
+    user-select: none;
+    position: relative;
+    z-index: 0;
+}
+
+.logoloop-track.track-horizontal {
+    flex-direction: row;
+    width: max-content;
+}
+
+.logoloop-track.track-vertical {
+    flex-direction: column;
+    height: max-content;
+    width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logoloop-track {
+        transform: none !important;
+    }
+}
+
+/* List */
+.logoloop-list {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.logoloop-list.list-vertical {
+    flex-direction: column;
+}
+
+/* Items */
+.logoloop-item {
+    flex: none;
+    font-size: var(--logoloop-logoHeight);
+    line-height: 1;
+}
+
+.item-horizontal {
+    margin-right: var(--logoloop-gap);
+}
+
+.item-vertical {
+    margin-bottom: var(--logoloop-gap);
+}
+
+.logoloop-root.scale-on-hover .logoloop-item {
+    overflow: visible;
+}
+
+/* Content & Images */
+.logoloop-node-content {
+    display: inline-flex;
+    align-items: center;
+}
+
+.logoloop-img {
+    height: var(--logoloop-logoHeight);
+    width: auto;
+    display: block;
+    object-fit: contain;
+    -webkit-user-drag: none;
+    pointer-events: none;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.logoloop-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: opacity 0.2s ease-linear;
+    color: inherit;
+}
+
+.logoloop-link:hover {
+    opacity: 0.8;
+}
+
+/* Scale on hover transitions */
+.logoloop-root.scale-on-hover .logoloop-node-content,
+.logoloop-root.scale-on-hover .logoloop-img {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logoloop-root.scale-on-hover .logoloop-node-content:hover,
+.logoloop-root.scale-on-hover .logoloop-img:hover {
+    transform: scale(1.2);
+}
+
+/* Fade Overlays */
+.logoloop-fade-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.fade-left,
+.fade-right,
+.fade-top,
+.fade-bottom {
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.fade-left {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: clamp(24px, 8%, 120px);
+    background: linear-gradient(to right, var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.fade-right {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: clamp(24px, 8%, 120px);
+    background: linear-gradient(to left, var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.fade-top {
+    left: 0;
+    right: 0;
+    top: 0;
+    height: clamp(24px, 8%, 120px);
+    background: linear-gradient(to bottom, var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.fade-bottom {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: clamp(24px, 8%, 120px);
+    background: linear-gradient(to top, var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%, rgba(0, 0, 0, 0) 100%);
+}

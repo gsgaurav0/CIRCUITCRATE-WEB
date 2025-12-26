@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const containerVariants = {
-  hidden: { 
+  hidden: {
     opacity: 0,
     y: 30
   },
-  visible: { 
+  visible: {
     opacity: 1,
     y: 0,
     transition: {
@@ -21,12 +21,12 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { 
+  hidden: {
     opacity: 0,
     y: 20
   },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: {
       duration: 0.6,
@@ -55,13 +55,13 @@ const numberVariants = {
 };
 
 const ghostVariants = {
-  hidden: { 
+  hidden: {
     scale: 0.8,
     opacity: 0,
     y: 15,
     rotate: -5
   },
-  visible: { 
+  visible: {
     scale: 1,
     opacity: 1,
     y: 0,
@@ -103,7 +103,7 @@ export function NotFound() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black px-4">
       <AnimatePresence mode="wait">
-        <motion.div 
+        <motion.div
           className="text-center"
           variants={containerVariants}
           initial="hidden"
@@ -111,7 +111,7 @@ export function NotFound() {
           exit="hidden"
         >
           <div className="flex items-center justify-center gap-4 md:gap-6 mb-8 md:mb-12">
-            <motion.span 
+            <motion.span
               className="text-[80px] md:text-[120px] font-bold text-white opacity-70 font-signika select-none"
               variants={numberVariants}
               custom={-1}
@@ -132,7 +132,7 @@ export function NotFound() {
                 draggable={false}
               />
             </motion.div>
-            <motion.span 
+            <motion.span
               className="text-[80px] md:text-[120px] font-bold text-white opacity-70 font-signika select-none"
               variants={numberVariants}
               custom={1}
@@ -140,24 +140,24 @@ export function NotFound() {
               4
             </motion.span>
           </div>
-          
-          <motion.h1 
+
+          <motion.h1
             className="text-3xl md:text-5xl font-bold text-white mb-4 md:mb-6 opacity-90 font-dm-sans select-none"
             variants={itemVariants}
           >
             Boo! Page missing!
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             className="text-lg md:text-xl text-white mb-8 md:mb-12 opacity-70 font-dm-sans select-none"
             variants={itemVariants}
           >
             Whoops! This page must be a ghost - it&apos;s not here!
           </motion.p>
 
-          <motion.div 
+          <motion.div
             variants={itemVariants}
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
               transition: {
                 duration: 0.3,
@@ -165,7 +165,7 @@ export function NotFound() {
               }
             }}
           >
-            <Link 
+            <Link
               to="/"
               className="inline-block bg-white text-black px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-200 transition-colors font-dm-sans select-none"
             >
@@ -173,16 +173,18 @@ export function NotFound() {
             </Link>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="mt-12"
             variants={itemVariants}
           >
-            <Link
-              to="#"
+            <a
+              href="https://en.wikipedia.org/wiki/HTTP_404"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white opacity-60 hover:opacity-80 transition-opacity underline font-dm-sans select-none"
             >
               What means 404?
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
       </AnimatePresence>

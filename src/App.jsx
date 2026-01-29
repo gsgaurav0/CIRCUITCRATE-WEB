@@ -10,24 +10,36 @@ import ContactPage from './pages/ContactPage';
 import AuthPage from './pages/AuthPage';
 import ElectronicsPage from './pages/ElectronicsPage';
 import NotFoundPage from './components/demo-404';
+import LoadingScreen from './components/LoadingScreen';
 
 function App() {
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="courses" element={<CoursesPage />} />
-          <Route path="learning" element={<LearningPage />} />
-          <Route path="workshops" element={<WorkshopsPage />} />
-          <Route path="contact" element={<ContactPage />} />
-          <Route path="auth" element={<AuthPage />} />
-          <Route path="electronics" element={<ElectronicsPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <>
+      {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
+      <div className={isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="about" element={<About />} />
+              <Route path="courses" element={<CoursesPage />} />
+              <Route path="learning" element={<LearningPage />} />
+              <Route path="workshops" element={<WorkshopsPage />} />
+              <Route path="contact" element={<ContactPage />} />
+              <Route path="auth" element={<AuthPage />} />
+              <Route path="electronics" element={<ElectronicsPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </>
   );
 }
 

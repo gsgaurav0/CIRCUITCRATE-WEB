@@ -1,11 +1,11 @@
 import React from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import StaggeredMenu from './StaggeredMenu';
 import Footer from './Footer';
 import logo from '../assets/c2_logo.png';
 
 const Layout = () => {
-    const location = useLocation();
+
 
     const menuItems = [
         { label: 'Home', ariaLabel: 'Home', link: '/' },

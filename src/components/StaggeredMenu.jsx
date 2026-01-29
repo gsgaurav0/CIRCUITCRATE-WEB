@@ -106,12 +106,12 @@ const StaggeredMenu = ({
         const tl = gsap.timeline({ paused: true });
 
         layerStates.forEach((ls, i) => {
-            tl.fromTo(ls.el, { xPercent: ls.start }, { xPercent: 0, duration: 0.5, ease: 'power4.out' }, i * 0.07);
+            tl.fromTo(ls.el, { xPercent: ls.start }, { xPercent: 0, duration: 0.3, ease: 'power4.out' }, i * 0.04);
         });
 
-        const lastTime = layerStates.length ? (layerStates.length - 1) * 0.07 : 0;
-        const panelInsertTime = lastTime + (layerStates.length ? 0.08 : 0);
-        const panelDuration = 0.65;
+        const lastTime = layerStates.length ? (layerStates.length - 1) * 0.04 : 0;
+        const panelInsertTime = lastTime + (layerStates.length ? 0.05 : 0);
+        const panelDuration = 0.4;
 
         tl.fromTo(
             panel,
@@ -126,7 +126,7 @@ const StaggeredMenu = ({
 
             tl.to(
                 itemEls,
-                { yPercent: 0, rotate: 0, duration: 1, ease: 'power4.out', stagger: { each: 0.1, from: 'start' } },
+                { yPercent: 0, rotate: 0, duration: 0.6, ease: 'power4.out', stagger: { each: 0.05, from: 'start' } },
                 itemsStart
             );
 
@@ -193,7 +193,7 @@ const StaggeredMenu = ({
 
         closeTweenRef.current = gsap.to(all, {
             xPercent: offscreen,
-            duration: 0.32,
+            duration: 0.2,
             ease: 'power3.in',
             overwrite: 'auto',
             onComplete: () => {
@@ -382,7 +382,7 @@ const StaggeredMenu = ({
                     className="staggered-menu-header absolute top-0 left-0 w-full flex items-center justify-between p-[2em] bg-transparent pointer-events-none z-20"
                     aria-label="Main navigation header"
                 >
-                    <div className="sm-logo flex items-center select-none pointer-events-auto" aria-label="Logo">
+                    <Link to="/" className="sm-logo flex items-center select-none pointer-events-auto" aria-label="Logo">
                         <img
                             src={logoUrl}
                             alt="Logo"
@@ -391,7 +391,7 @@ const StaggeredMenu = ({
                             width={110}
                             height={24}
                         />
-                    </div>
+                    </Link>
 
                     <button
                         ref={toggleBtnRef}

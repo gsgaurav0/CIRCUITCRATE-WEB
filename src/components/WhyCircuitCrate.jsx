@@ -40,7 +40,15 @@ const WhyCircuitCrate = () => {
                     </ul>
                 </div>
                 <div className="about-visual">
-                    <img src={aboutImage} alt="Hands working on robotics" className="about-image" />
+                    <img
+                        src={aboutImage}
+                        alt="Hands working on robotics"
+                        className="about-image"
+                        width="1024"
+                        height="559"
+                        loading="lazy"
+                        decoding="async"
+                    />
                     {/* Floating Cards for decoration */}
                     <div className="float-card float-icon-1">⚙️</div>
                     <div className="float-card float-icon-2">🤖</div>

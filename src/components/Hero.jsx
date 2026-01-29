@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
-import { SplineScene } from './ui/splite';
+
+// Lazy load the 3D component to avoid main thread blocking
+const SplineScene = lazy(() =>
+    import('./ui/splite').then(module => ({ default: module.SplineScene }))
+);
 
 const Hero = () => {
     return (
@@ -16,7 +20,7 @@ const Hero = () => {
                         </h1>
 
                         <p className="hero-description">
-                            Master robotics and hardware from scratch with our beginner-friendly online courses. 
+                            Master robotics and hardware from scratch with our beginner-friendly online courses.
                             Learn Arduino, sensors, microcontrollers, and build real projects that solve actual problems.
                         </p>
 
@@ -25,12 +29,14 @@ const Hero = () => {
                             <Link to="/learning" className="hero-btn hero-btn-secondary">Read Docs</Link>
                         </div>
                     </div>
-                    
+
                     <div className="hero-robot">
-                        <SplineScene 
-                            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                            className="hero-spline-scene"
-                        />
+                        <Suspense fallback={<div className="hero-spline-placeholder" style={{ height: '500px', width: '100%' }}></div>}>
+                            <SplineScene
+                                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                                className="hero-spline-scene"
+                            />
+                        </Suspense>
                     </div>
                 </div>
             </div>

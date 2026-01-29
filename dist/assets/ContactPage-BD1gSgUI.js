@@ -1,1 +1,0 @@
-import{j as t}from"./index-CAayosvg.js";import{C as a}from"./Contact-Mp1TANLb.js";const e=()=>t.jsx("div",{className:"page-container",style:{paddingTop:"80px"},children:t.jsx(a,{})});export{e as default};

@@ -7,6 +7,21 @@ const SplineScene = lazy(() =>
 );
 
 const Hero = () => {
+    const [isDesktop, setIsDesktop] = React.useState(true);
+
+    React.useEffect(() => {
+        const checkIsDesktop = () => {
+            setIsDesktop(window.innerWidth >= 1024);
+        };
+
+        // Initial check
+        checkIsDesktop();
+
+        // Listener
+        window.addEventListener('resize', checkIsDesktop);
+        return () => window.removeEventListener('resize', checkIsDesktop);
+    }, []);
+
     return (
         <section id="home" className="hero">
             <div className="hero-bg-grid"></div>
@@ -31,12 +46,14 @@ const Hero = () => {
                     </div>
 
                     <div className="hero-robot">
-                        <Suspense fallback={<div className="hero-spline-placeholder" style={{ height: '500px', width: '100%' }}></div>}>
-                            <SplineScene
-                                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                                className="hero-spline-scene"
-                            />
-                        </Suspense>
+                        {isDesktop && (
+                            <Suspense fallback={<div className="hero-spline-placeholder" style={{ height: '500px', width: '100%' }}></div>}>
+                                <SplineScene
+                                    scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                                    className="hero-spline-scene"
+                                />
+                            </Suspense>
+                        )}
                     </div>
                 </div>
             </div>

@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/react-spline-DGycerVt.js","assets/index-BWGv0w7X.js","assets/index-CF0QDIA5.css"])))=>i.map(i=>d[i]);
+import{j as e,r as s,_ as t}from"./index-BWGv0w7X.js";const a=s.lazy(()=>t(()=>import("./react-spline-DGycerVt.js"),__vite__mapDeps([0,1,2])));function i({scene:r,className:l}){return e.jsx(s.Suspense,{fallback:e.jsx("div",{className:"w-full h-full flex items-center justify-center",children:e.jsx("span",{className:"loader"})}),children:e.jsx(a,{scene:r,className:l})})}export{i as SplineScene};

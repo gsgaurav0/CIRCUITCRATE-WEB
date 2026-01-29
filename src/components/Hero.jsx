@@ -7,7 +7,8 @@ const SplineScene = lazy(() =>
 );
 
 const Hero = () => {
-    const [isDesktop, setIsDesktop] = React.useState(true);
+    const [isDesktop, setIsDesktop] = React.useState(false);
+    const [shouldLoadSpline, setShouldLoadSpline] = React.useState(false);
 
     React.useEffect(() => {
         const checkIsDesktop = () => {
@@ -21,6 +22,16 @@ const Hero = () => {
         window.addEventListener('resize', checkIsDesktop);
         return () => window.removeEventListener('resize', checkIsDesktop);
     }, []);
+
+    // Defer loading of heavy 3D content to unblock initial render
+    React.useEffect(() => {
+        if (isDesktop) {
+            const timer = setTimeout(() => {
+                setShouldLoadSpline(true);
+            }, 2500); // 2.5s delay allows main thread to settle
+            return () => clearTimeout(timer);
+        }
+    }, [isDesktop]);
 
     return (
         <section id="home" className="hero">
@@ -46,7 +57,7 @@ const Hero = () => {
                     </div>
 
                     <div className="hero-robot">
-                        {isDesktop && (
+                        {isDesktop && shouldLoadSpline && (
                             <Suspense fallback={<div className="hero-spline-placeholder" style={{ height: '500px', width: '100%' }}></div>}>
                                 <SplineScene
                                     scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"

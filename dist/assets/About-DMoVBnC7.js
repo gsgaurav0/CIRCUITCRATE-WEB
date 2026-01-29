@@ -1,0 +1,1 @@
+import{j as t}from"./index-BWGv0w7X.js";import{W as r}from"./WhyCircuitCrate-BJDqKEGV.js";import"./about_robotics_hands-BuJ_sKGe.js";const e=()=>t.jsx("div",{className:"page-container",style:{paddingTop:"80px"},children:t.jsx(r,{})});export{e as default};

@@ -1,0 +1,1 @@
+import{j as t}from"./index-BWGv0w7X.js";import{C as a}from"./Contact-DFClbpSW.js";const e=()=>t.jsx("div",{className:"page-container",style:{paddingTop:"80px"},children:t.jsx(a,{})});export{e as default};
